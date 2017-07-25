@@ -9,7 +9,7 @@ export default {
                     return xmlHttp.responseText;
             }
             xmlHttp.open("GET", theUrl, true); // true for asynchronous
-            x
+
             xmlHttp.send(null);
         }
     }

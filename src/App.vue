@@ -18,7 +18,7 @@
       <!-- Components -->
         <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav"><!--class="hidden-sm-up"--></v-toolbar-side-icon>
         <v-btn flat @click.native.stop="this.window.history.back()"><v-icon>arrow_back</v-icon></v-btn>
-        <v-toolbar-title> Hello World </v-toolbar-title>
+        <v-toolbar-title> {{vm.message}} </v-toolbar-title>
 
         <v-spacer> </v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
@@ -39,10 +39,13 @@
 
 <script>
 
+    vm.message = 'Hello!'
+
   export default {
     data () {
         return {
-            sideNav: false
+            sideNav: false,
+            currentTitle: "Feed"
         }
     },
   }

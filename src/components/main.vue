@@ -42,7 +42,9 @@
     export default {
         mixins: [HttpUtils],
         data () {
+
             return {
+                currentTitle: "Project Siren - Home",
                 titles: [
                     {title: "Hello World", author: "robinxu", coverimg: "https://vuejs.org/images/logo.png"},
                     {title: "Bye World", author: "Shakesphere", coverimg: "https://vuejs.org/images/logo.png"}
