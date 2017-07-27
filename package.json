@@ -1,6 +1,6 @@
 {
   "name": "project-siren-web",
-  "description": "a new, innovative, and intuitive representation for novelists",
+  "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "Robin Xu <robinxu2000@outlook.com>",
   "private": true,
