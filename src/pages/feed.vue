@@ -4,8 +4,10 @@
 
         <main>
             <bannerdev></bannerdev>
-            <feedcards :apiDataSource='designatedAPI'></feedcards>
+            <feedcards :apiDataSource='GetAllChaptersAPI'></feedcards>
         </main>
+
+        <footerbar></footerbar>
 
     </v-app>
 </template>
@@ -14,19 +16,20 @@
     import headerbar from '../components/header.vue'
     import feedcards from '../components/feed_cards.vue'
     import bannerdev from '../components/banner_dev.vue'
+    import footerbar from '../components/footer.vue'
 
-    import {APIFeedConfig} from '../../config.js'
+    import {APIGetAllChapters} from '../../config.js'
 
     export default {
         name: 'app',
         components: {
-            headerbar, feedcards, bannerdev
+            headerbar, feedcards, bannerdev, footerbar
         },
 
         data () {
             return {
                 headerData: "Feed - Project Siren",
-                designatedAPI: APIFeedConfig
+                GetAllChaptersAPI: APIGetAllChapters
             }
         }
     }

@@ -3,17 +3,21 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 
 import Vuetify from 'vuetify'
+import VueMarkdown from 'vue-markdown'
 
 Vue.use(Vuetify)
 Vue.use(VueRouter)
+Vue.use(VueMarkdown)
 
 // Vue-router configuration for unity
 import feedPage from './pages/feed.vue'
 import aboutPage from './pages/static_about.vue'
+import viewPage from './pages/view.vue'
 
 const routes = [
     {path: '/', component: feedPage},
-    {path: '/about', component: aboutPage}
+    {path: '/about', component: aboutPage},
+    {path: '/view', component: viewPage}
 ]
 
 const router = new VueRouter({
@@ -23,7 +27,10 @@ const router = new VueRouter({
 // Start the main interface :)
 
 new Vue({
-  el: '#app',
-    router,
-  render: h => h(App)
+    components: {
+        VueMarkdown
+    },
+    el: '#app',
+        router,
+    render: h => h(App)
 })

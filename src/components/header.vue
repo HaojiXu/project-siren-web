@@ -3,8 +3,6 @@
     <!-- <h1> Testing component: {{ headerData }}</h1> -->
 
     <!-- Header bar, Navigation, always on top. -->
-    <!-- Part of Project Siren, a poorly documented website for artists. -->
-    <!-- Just to be humorous, haha. -->
 
     <v-toolbar dark class="primary">
         <v-toolbar-side-icon></v-toolbar-side-icon>

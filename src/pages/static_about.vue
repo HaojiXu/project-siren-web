@@ -1,16 +1,19 @@
 <template>
     <v-app light>
         <headerbar :headerData='headerData'></headerbar>
+
+        <footerbar></footerbar>
     </v-app>
 </template>
 
 <script>
     import headerbar from '../components/header.vue'
+    import footerbar from '../components/footer.vue'
 
     export default {
         name: 'app',
         components: {
-            headerbar
+            headerbar, footerbar
         },
 
         data () {
