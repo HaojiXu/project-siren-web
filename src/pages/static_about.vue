@@ -7,8 +7,8 @@
 </template>
 
 <script>
-    import headerbar from '../components/header.vue'
-    import footerbar from '../components/footer.vue'
+    import headerbar from '../components/global/header.vue'
+    import footerbar from '../components/global/footer.vue'
 
     export default {
         name: 'app',

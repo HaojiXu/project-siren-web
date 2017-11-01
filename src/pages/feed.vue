@@ -13,10 +13,10 @@
 </template>
 
 <script>
-    import headerbar from '../components/header.vue'
+    import headerbar from '../components/global/header.vue'
     import feedcards from '../components/feed_cards.vue'
-    import bannerdev from '../components/banner_dev.vue'
-    import footerbar from '../components/footer.vue'
+    import bannerdev from '../components/global/banner_dev.vue'
+    import footerbar from '../components/global/footer.vue'
 
     import {APIGetAllChapters} from '../../config.js'
 
@@ -29,7 +29,7 @@
         data () {
             return {
                 headerData: "Feed - Project Siren",
-                GetAllChaptersAPI: APIGetAllChapters
+                GetAllChaptersAPI: 'http://siren.altoria.me/api/api.php/all_chapters'
             }
         }
     }

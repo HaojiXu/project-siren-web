@@ -13,11 +13,13 @@ Vue.use(VueMarkdown)
 import feedPage from './pages/feed.vue'
 import aboutPage from './pages/static_about.vue'
 import viewPage from './pages/view.vue'
+import createPage from './pages/create_page.vue'
 
 const routes = [
     {path: '/', component: feedPage},
     {path: '/about', component: aboutPage},
-    {path: '/view', component: viewPage}
+    {path: '/view', component: viewPage},
+    {path: '/create_page', component: createPage}
 ]
 
 const router = new VueRouter({
