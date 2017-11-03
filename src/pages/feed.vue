@@ -29,7 +29,7 @@
         data () {
             return {
                 headerData: "Feed - Project Siren",
-                GetAllChaptersAPI: 'http://siren.altoria.me/api/api.php/all_chapters'
+                GetAllChaptersAPI: APIGetAllChapters
             }
         }
     }

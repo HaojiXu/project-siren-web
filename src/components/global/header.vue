@@ -14,6 +14,9 @@
         <v-btn icon @>
             <v-icon>refresh</v-icon>
         </v-btn>
+        <v-btn icon @click.native="vm.$router.push({path: '/create_page'})">
+            <v-icon>file_upload</v-icon>
+        </v-btn>
     </v-toolbar>
 
 
@@ -25,7 +28,7 @@
       props: ['headerData'],
     data () {
       return {
-
+        vm: this.$root
       }
     }
   }
