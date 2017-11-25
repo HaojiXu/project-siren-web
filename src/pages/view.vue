@@ -5,21 +5,21 @@
         <!-- The Chapter Title -->
 
                 <v-card>
-                    <v-parallax src="https://itmeo.com/public/webgradients_png/023%20Rare%20Wind.png" height="600">
+                    <v-parallax src="https://images.apple.com/v/mac/home/x/images/home/business_updated_large_2x.jpg" height="600">
                         <v-layout column align-center justify-center>
                             <h2 class="black--text"> {{chapterInfo.Title}} </h2>
-                            <h8 class="black--text">
+                            <a class="black--text">
 
                                 <v-icon>access_time</v-icon>
                                 {{chapterInfo.TimeUpdated}}
 
-                            </h8>
+                            </a>
                         </v-layout>
                     </v-parallax>
                 </v-card>
 
 
-        <chapter_viewer :display="chapterInfo.Content"></chapter_viewer>
+        <chapter_viewer :display="preprocess(chapterInfo.Content)"></chapter_viewer>
 
         <v-layout row wrap>
             <v-flex xs6 offset-xs3>
@@ -38,6 +38,8 @@
     import footerbar from '../components/global/footer.vue'
     import chapter_viewer from '../components/chapter_viewer.vue'
 
+    import utils from '../components/preprocessing_chapter.js'
+
     //import {APIGetSingleChapter} from '../../config.js'
 
     export default {
@@ -48,12 +50,11 @@
 
         data () {
             return {
-                chapterInfo: []
+                chapterInfo: [],
+                preprocess: utils.preprocess
             }
         },
         created: function () {
-            // using placeholder data
-            //return;
             var APIGetSingleChapter = 'http://siren.altoria.me/api/api.php/chapter/';
 
             var vm = this;
@@ -65,6 +66,10 @@
             }
             xmlHttp.open("GET", APIGetSingleChapter + vm.$router.currentRoute.query.titleID, true);
             xmlHttp.send(null);
+
+            // Now further edit chapter Content
+            //vm.chapterInfo.Content += "<br\><audio controls autoplay><source src=\"https://upload.wikimedia.org/wikipedia/commons/c/c3/Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27%2C_op._95_-_ii._largo.ogg\" type=\"audio/ogg\"></audio>"
+            //vm.chapterInfo.Content = ""
 
             // Now getting work data
             // TODO

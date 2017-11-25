@@ -21,6 +21,7 @@
 
 <script>
     import VueMarkdown from 'vue-markdown'
+    import utils from './preprocessing_chapter.js'
 
     export default {
         name: 'chapter_viewer',
@@ -30,8 +31,12 @@
         props: ['display', 'style_override'],
         data () {
             return {
+                //final_display: utils.preprocess(this.$parent.$data['chapterInfo.Content'])
+                //final_display: this.display
             }
-        }
+        },
+
+
     }
 </script>
 
