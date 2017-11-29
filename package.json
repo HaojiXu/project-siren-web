@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "howler": "^2.0.5",
     "password-hash": "^1.2.2",
     "vue": "^2.5.8",
     "vue-disqus": "^2.0.4",
