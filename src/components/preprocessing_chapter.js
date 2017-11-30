@@ -8,14 +8,12 @@ exports.preprocess = function (original_md) {
         return [final_md, control_obj]
     }
 
-// += "<br/> [music src=\"https://upload.wikimedia.org/wikipedia/commons/f/fe/Internationale.ogg\"]"
-
 function replace_music_embed (text) {
     // match pattern like: [music src=""]
 
     const regex = /\[music\ src\=\"(.*)\"\]/g;
     let m, matches = [];
-    var obj = [];
+    var obj = [], sound_index = 0;
 
     while ((m = regex.exec(text)) !== null) {
         // This is necessary to avoid infinite loops with zero-width matches
@@ -24,14 +22,10 @@ function replace_music_embed (text) {
         }
 
         matches.push([m, m.index, m.index + m[0].length])
-        text = text.substring(0, m.index) + "<div id='detector'></div>" + text.substring(m.index + m[0].length);
+        text = text.substring(0, m.index) + "<div id='detector"+ sound_index++ +"' ></div>" + text.substring(m.index + m[0].length);
 
-        //var urlPattern = /(([A-Za-z]{3,9}):\/\/)?([-;:&=\+\$,\w]+@{1})?(([-A-Za-z0-9]+\.)+[A-Za-z]{2,3})(:\d+)?((\/[-\+~%/\.\w]+)?\/?([&?][-\+=&;%@\.\w]+)?(#[\w]+)?)?/g
-        //var soundUrl = urlPattern.exec(m)
         obj.push(m[1])
         console.log(m[1])
-
-        //script += "console.log('Hello., From Preprocessing')"
     }
 
 

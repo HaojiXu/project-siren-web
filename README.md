@@ -1,8 +1,14 @@
 # project-siren-web
 
-> A Vue.js project
+Source code for Project Siren, a nonprofit community for rich novel publishing.
+
+## Features
+- For authors: Easily embed media files with least effort.
+- Add popup windows, choices for more interaction with least cost.
 
 ## Build Setup
+
+This project (web frontend) is built upon Vue.JS and Webpack. Execute the following bash lines to get started.
 
 ``` bash
 # install dependencies
@@ -15,4 +21,3 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

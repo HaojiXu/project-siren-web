@@ -47,7 +47,6 @@
 
     import utils from '../components/preprocessing_chapter.js'
     import VueMarkdown from 'vue-markdown'
-    //import howler from  'https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.5/howler.js'
 
     export default {
         name: 'app',
@@ -64,7 +63,8 @@
                 toHeight: 0,
                 fromHeight: 0,
                 current_sound: 0,
-                sounds: null
+                sounds: null,
+                sounds_obj: []
             }
         },
 
@@ -87,12 +87,19 @@
             },
             handleScroll () {
                 //this. = window.scrollY > 0;
-                this.toHeight = document.getElementById("detector").offsetTop
+                try {
+                    this.toHeight = document.getElementById("detector" + this.current_sound).offsetTop
+                } catch (err) {
+                    // omit
+                }
                 this.fromHeight = window.pageYOffset
-                if(this.toHeight - this.fromHeight < 30 && this.toHeight - this.fromHeight > 0) {
-                    if (this.sounds[this.current_sound] != null)
-                        var sound = new Howl({src: this.sounds[this.current_sound]}).play();
+                if(this.toHeight - this.fromHeight < 30 && this.toHeight - this.fromHeight > 0 && this.toHeight > 0 && this.toHeight != null) {
+                    if (this.sounds_obj[this.current_sound] != null)
+                        this.sounds_obj[this.current_sound].play();
                     this.current_sound += 1;
+                    // clear toHeight in case of misuse
+                    this.toHeight = 0;
+                    console.log(this.current_sound)
                 }
             }
         },
@@ -112,14 +119,13 @@
                     vm.display = temp_arr[0]
                     vm.sounds = temp_arr[1]["sounds"]
                     vm.current_sound = 0
+                    vm.sounds.forEach(function (sound) {
+                        vm.sounds_obj.push(new Howl({src: sound, buffer: true}))
+                    })
                 }
             }
             xmlHttp.open("GET", APIGetSingleChapter + vm.$router.currentRoute.query.titleID, true);
             xmlHttp.send(null);
-
-            // Now further edit chapter Content
-            //vm.chapterInfo.Content += "<br\><audio controls autoplay><source src=\"https://upload.wikimedia.org/wikipedia/commons/c/c3/Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27%2C_op._95_-_ii._largo.ogg\" type=\"audio/ogg\"></audio>"
-            //vm.chapterInfo.Content = ""
 
             // Load Disquz
             var d = document, s = d.createElement('script');

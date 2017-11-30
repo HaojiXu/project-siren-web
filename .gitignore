@@ -3,3 +3,6 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
+media_upload/
+*/.DS_Store
+howler.min.js

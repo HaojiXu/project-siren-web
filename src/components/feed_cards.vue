@@ -41,18 +41,13 @@
         props: ['apiDataSource'],
         data () {
             return {
-                // TODO: Retrieve data from designated datasource :)
-                titles: [
-                    //{id: 1, TermID: 1, title: "Hello World", authorid: "robinxu", covering: "https://vuejs.org/images/logo.png"},
-                    //{id: 2, TermID: 1, title: "Bye World", authorid: "Shakesphere", covering: "https://vuejs.org/images/logo.png"}
-                ],
+                titles: [],
                 a: 0,
                 vm: this.$root
             }
         },
         created: function () {
-            // using placeholder data
-            //return;
+
             var vm = this;
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange = function() {
